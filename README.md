@@ -3,7 +3,7 @@
 
 This repository contains an end-to-end implementation of a Wake Word Detection system. The system listens for a specific keyword (wake word) in audio streams, processes the audio, and triggers an action when the keyword is detected. It leverages deep learning techniques and audio feature extraction for accurate detection.
 
-This model is very light and can be deployed on edge devices easily. The model weights is just *374 KB*
+This model is very light and can be deployed on edge devices easily. The model weights is just **374 KB**
 
 ---
 
