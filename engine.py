@@ -49,6 +49,7 @@ class Listener:
                     num_layers=4
                 )
         self.model.load_state_dict(torch.load(model_file))
+        self.model.eval()
         self.sampler = FEATURE_INIT(sample_rate=self.sample_rate)
         self.FLAG = False
 
