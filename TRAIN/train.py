@@ -14,7 +14,6 @@ def parse_arguments():
     parser.add_argument("--epochs", type=int, default=10, help="Number of epochs to train the model.")
     parser.add_argument("--device", type=str, default="cpu", choices=["cpu", "cuda"], help="Device to use for training.")
     parser.add_argument("--dataset_folder", type=str, required=True, help="Path to the dataset folder.")
-    parser.add_argument("--wakeword_folder_name", type=str, default='cpu', required=False, help="The name of the wakeword folder")
     return parser.parse_args()
 
 
@@ -67,8 +66,7 @@ class FEATURE_INIT(nn.Module):
 
 
 class WakeWordDataset(Dataset):
-    def __init__(self, DATA_FOLDER, wakeword_name):
-        self.wakeword_name = wakeword_name
+    def __init__(self, DATA_FOLDER):
         self.DATA_FOLDERS = [os.path.join(DATA_FOLDER, i) for i in os.listdir(DATA_FOLDER)]
         self.DATASET = self.get_data(self.DATA_FOLDERS)
         random.shuffle(self.DATASET)
@@ -77,7 +75,7 @@ class WakeWordDataset(Dataset):
         out = []
         for folder in folders:
             files = os.listdir(folder)
-            out.extend([(os.path.join(folder, i), 1 if self.wakeword_name in folder else 0) for i in files])
+            out.extend([(os.path.join(folder, i), 1 if "wakeword" in folder else 0) for i in files])
 
         return out
 
