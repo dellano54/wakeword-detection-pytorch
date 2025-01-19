@@ -21,7 +21,8 @@ This repository contains an end-to-end implementation of a Wake Word Detection s
 ```
 .
 ├── engine.py                # Main wake word detection engine
-├── model.py                 # Defines the StackedConvNet model architecture
+├── model.py                # Defines the StackedConvNet model architecture
+├── requirements.txt        # Modules necessary to make this program work
 ├── TRAIN/
 │   ├── train.py             # Script for training the wake word model
 │   ├── recorder.py          # Tool for recording wake word datasets
